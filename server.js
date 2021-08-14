@@ -15,6 +15,14 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", { useNewUrlParser: true });
 
+app.get('/exercise', async (req, res) => {
+    try {
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
