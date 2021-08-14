@@ -5,7 +5,7 @@ router.get('/', async (req, res) => { //TESTED
     try {
         // console.log(req);
         const response = await db.Workout.find({})
-        console.log(response);
+        // console.log(response);
         res.status(200).json(response);
     } catch (err) {
         res.status(500).json(err);
@@ -61,11 +61,7 @@ router.put('/:id', async (req, res) => { //TESTED
 
 router.post('/', async (req, res) => { //TESTED
     try {
-        const response = await db.Workout.create(
-            {
-                date: new Date(),
-                exercises: {}
-            },
+        const response = await db.Workout.create(req.body,
             (err, created) => {
                 if (err) {
                     console.log(err);
@@ -73,7 +69,7 @@ router.post('/', async (req, res) => { //TESTED
                 }
             }
         )
-        res.status(200).json(response);
+        res.json(response);
     } catch (err) {
         res.status(500).json(err);
     }

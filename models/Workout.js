@@ -4,7 +4,8 @@ const Exercise = require("./Exercise")
 
 const WorkoutSchema = new Schema({
     day: {
-      type: Date
+      type: Date,
+      default: new Date()
     },
     exercises: {
       type: [Exercise]
