@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const db = require("../../models");
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { //TESTED
     try {
         // console.log(req);
         const response = await db.Workout.find({})
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/range', async (req, res) => {
+router.get('/range', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.find({});
         const range = []
@@ -26,7 +26,7 @@ router.get('/range', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => { //TESTED
     try {
         // console.log(req);
         const response = await db.Workout.findById(req.params.id)
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.findByIdAndUpdate(
             req.params.id,
@@ -59,20 +59,21 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.create(
-            req.body,
+            {
+                date: new Date(),
+                exercises: {}
+            },
             (err, created) => {
                 if (err) {
                     console.log(err);
                     res.send(err);
-                } else {
-                    console.log(created);
-                    res.send(created);
                 }
             }
         )
+        res.status(200).json(response);
     } catch (err) {
         res.status(500).json(err);
     }

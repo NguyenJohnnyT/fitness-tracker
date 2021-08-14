@@ -10,7 +10,7 @@ async function initWorkout() {
     for (let i = 0; i < lastWorkout.exercises.length; i++) {
       lastWorkout.totalDuration += lastWorkout.exercises[i].duration
     };
-
+    
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,
