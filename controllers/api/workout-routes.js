@@ -41,7 +41,9 @@ router.put('/:id', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.findByIdAndUpdate(
             req.params.id,
-            req.body,
+            {
+                $push: { exercises: req.body }
+            },
             (err, edited) => {
                 if (err) {
                     console.log(err);
@@ -59,6 +61,7 @@ router.put('/:id', async (req, res) => { //TESTED
     }
 })
 
+//create workout
 router.post('/', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.create(req.body,

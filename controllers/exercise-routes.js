@@ -1,12 +1,10 @@
 const router = require('express').Router();
 const db = require("../models");
+const path = require("path");
 
 router.get('/', async (req, res) => {
     try {
-        // console.log('params', req.params.id);
-        const response = await db.Workout.find({})
-        console.log(response);
-        res.status(200).json(response);
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
     } catch (err) {
         res.status(500).json(err);
     }
