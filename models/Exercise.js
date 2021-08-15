@@ -33,6 +33,11 @@ const ExerciseSchema = new Schema({
         type: Number,
         min: 1
       },
+
+      distance: {
+        type: Number,
+        default: 0
+      }
 })
 
 const Exercise = mongoose.model("Exercise", ExerciseSchema)

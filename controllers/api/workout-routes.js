@@ -37,24 +37,16 @@ router.get('/:id', async (req, res) => { //TESTED
     }
 })
 
+//add exercise
 router.put('/:id', async (req, res) => { //TESTED
     try {
         const response = await db.Workout.findByIdAndUpdate(
             req.params.id,
             {
                 $push: { exercises: req.body }
-            },
-            (err, edited) => {
-                if (err) {
-                    console.log(err);
-                    res.send(err);
-                } else {
-                    console.log(edited);
-                    res.send(edited);
-                }
             }
-        )
-        console.log(response);
+        );
+        // console.log(response);
         res.status(200).json(response);
     } catch (err) {
         res.status(500).json(err);
@@ -62,16 +54,9 @@ router.put('/:id', async (req, res) => { //TESTED
 })
 
 //create workout
-router.post('/', async (req, res) => { //TESTED
+router.post('/', async ({ body }, res) => { //TESTED
     try {
-        const response = await db.Workout.create(req.body,
-            (err, created) => {
-                if (err) {
-                    console.log(err);
-                    res.send(err);
-                }
-            }
-        )
+        const response = await db.Workout.create(body)
         res.json(response);
     } catch (err) {
         res.status(500).json(err);
