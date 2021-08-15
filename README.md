@@ -56,7 +56,7 @@ New workout button: Add a new workout and exercises for that day.
 
 Dashboard: Display graphs and charts based off the previous seven days of working out.
 
-Deployed application: [click here.](#)
+Deployed application: [click here.](https://secret-harbor-92178.herokuapp.com/)
 
 Github repository: [click here.](https://github.com/NguyenJohnnyT/fitness-tracker)
 
