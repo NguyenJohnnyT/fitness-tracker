@@ -6,14 +6,14 @@ async function initWorkout() {
       .querySelector("a[href='/exercise?']")
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
       
-    lastWorkout.totalDuration = 0;
-    for (let i = 0; i < lastWorkout.exercises.length; i++) {
-      lastWorkout.totalDuration += lastWorkout.exercises[i].duration
-    };
+    // lastWorkout.totalDuration = 0;
+    // for (let i = 0; i < lastWorkout.exercises.length; i++) {
+    //   lastWorkout.totalDuration += lastWorkout.exercises[i].duration
+    // };
 
-    for (let i = 0; i < lastWorkout.exercises.length; i++) {
-      lastWorkout.totalDistance += lastWorkout.exercises[i].distance
-    };
+    // for (let i = 0; i < lastWorkout.exercises.length; i++) {
+    //   lastWorkout.totalDistance += lastWorkout.exercises[i].distance
+    // };
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,
