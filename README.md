@@ -48,7 +48,7 @@ Run `node server.js` to start the server.
 ## Usage
 
 <h4> A video demonstration </h4>
-<img src = './public/images/readme/Fitness_tracker.gif'>
+<img src = './public/images/readme/Fitness_Tracker.gif'>
 
 Continue workout button: Add an exercise to a previously existing workout (displayed on the home screen as Last Workout)
 
